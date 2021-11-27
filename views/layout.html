@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <header class="wetube-title">
+      <div class="wetube-title__title">
+        <div class="wetube-title__column">
+          <div class="wetube-title__main">
+            <h1>Wetube</h1>
+          </div>
+        </div>
+        <div class="wetube-title__column">
+          {% if isLoggdein %}
+          <div class="wetube-title__downbar">
+            <a href="/upload" class="btn"><i class="fas fa-video"></i></a>
+            <h3>{{user.thumbnail}}</h3>
+            <div class="wetube-title__bar"></div>
+          </div>
+          {% else %}
+          <div class="wetube-title__downbar">
+            <a href="/login" class="btn">login</a>
+            <a href="/join" class="btn">join</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main-sidebar">
+        {% if isLoggdein %}
+        <div class="main-sidebar__subscribebar">
+          <h5>subscribe</h5>
+          <li class="main-sidebar__list">
+            {% for subscribe in subscribeList %}
+            <ul class="main-sidebar__content">
+              <img src="{{subscribe.thumbnail}}" />
+              <p>{{subscribe.nickname}}</p>
+            </ul>
+            {% endfor %}
+          </li>
+        </div>
+        {% else %}
+        <div>
+          <h6>Please log in</h6>
+          <div class="main-sidebar__notlogin">
+            <a href="/login" class="btn">login</a>
+            <a href="/join" class="btn">join</a>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="main-title">{% block content %} {% endblock %}</div>
+    </main>
+    <script
+      src="https://kit.fontawesome.com/1566cc2fb5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/public/layout.js"></script>
+    {% block script %} {% endblock %}
+  </body>
+</html>
