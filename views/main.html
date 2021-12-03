@@ -1,0 +1,13 @@
+{% extends "layout.html" %} {% block content %}
+<div class="main-title__videos">
+  {% for video in videos %}
+  <div class="main-title__video">
+    <img src="video.thumbnail" />
+    <div class="main-title__text">
+      <h4>{{video.title}}</h4>
+      <h6>{{video.subtitle}}</h6>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

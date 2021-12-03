@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="shortcut icon" href="#" />
     <title>{{title}}</title>
   </head>
   <body>
@@ -11,20 +13,23 @@
       <div class="wetube-title__title">
         <div class="wetube-title__column">
           <div class="wetube-title__main">
-            <h1>Wetube</h1>
+            <p><i class="fas fa-sliders-h"></i></p>
+            <a href="/">
+              <h1>Wetube</h1>
+            </a>
           </div>
         </div>
         <div class="wetube-title__column">
-          {% if isLoggdein %}
+          {% if isLoggedIn %}
           <div class="wetube-title__downbar">
-            <a href="/upload" class="btn"><i class="fas fa-video"></i></a>
-            <h3>{{user.thumbnail}}</h3>
-            <div class="wetube-title__bar"></div>
-          </div>
+            <a href="/upload" class="btn">UPLOAD VIDEO</a>
+            <a href="/edit" class="btn">EDIT PROFILE</a>
+            <a href="/auth/logout" class="btn">LOG OUT</a>
+            <!-- <img src="{{user.profile}}" /> -->
           {% else %}
           <div class="wetube-title__downbar">
-            <a href="/login" class="btn">login</a>
-            <a href="/join" class="btn">join</a>
+            <a href="/login" class="btn">LOGIN</a>
+            <a href="/join" class="btn-white">JOIN</a>
           </div>
           {% endif %}
         </div>
@@ -32,11 +37,11 @@
     </header>
     <main class="main">
       <div class="main-sidebar">
-        {% if isLoggdein %}
+        {% if isLoggedIn %}
         <div class="main-sidebar__subscribebar">
           <h5>subscribe</h5>
           <li class="main-sidebar__list">
-            {% for subscribe in subscribeList %}
+            {% for subscribe in subbscrieList %}
             <ul class="main-sidebar__content">
               <img src="{{subscribe.thumbnail}}" />
               <p>{{subscribe.nickname}}</p>
@@ -45,11 +50,11 @@
           </li>
         </div>
         {% else %}
-        <div>
+        <div class="main-sidebar__loginbar">
           <h6>Please log in</h6>
           <div class="main-sidebar__notlogin">
-            <a href="/login" class="btn">login</a>
-            <a href="/join" class="btn">join</a>
+            <a href="/login" class="btn-white">login</a>
+            <a href="/join" class="btn-white">join</a>
           </div>
         </div>
         {% endif %}
@@ -61,7 +66,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/public/layout.js"></script>
+    <script src="/index.js"></script>
     {% block script %} {% endblock %}
   </body>
 </html>

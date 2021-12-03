@@ -1,0 +1,75 @@
+.wetube-title {
+  background-color: #202020;
+}
+
+.wetube-title__title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 13.333px;
+}
+
+.wetube-title__main {
+  display: flex;
+  text-align: center;
+}
+
+.wetube-title__main h1 {
+  font-size: 30px;
+}
+
+.wetube-title__main p {
+  font-size: 20px;
+  margin-top: 7px;
+  margin-right: 15px;
+}
+
+.wetube-title__downbar {
+  margin-top: 7px;
+}
+
+.wetube-title__downbar img {
+  width: 35px;
+  height: 35px;
+  position: relative;
+}
+
+.main-sidebar {
+  position: sticky;
+  position: relative;
+  left: 0px;
+  background-color: #202020;
+  width: 175px;
+  height: 92vh;
+}
+
+.main-sidebar__loginbar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-sidebar__loginbar {
+  display: block;
+  width: 175px;
+  text-align: center;
+}
+
+.main-sidebar__loginbar h6 {
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
+.main-sidebar__notlogin a {
+  margin: 0px 15px;
+}
+
+.main-sidebar__subscribebar {
+  font-size: 16px;
+  opacity: 0.5;
+  padding-top: 10px;
+  margin-left: 15px;
+  width: 140px;
+  border-top: 1px solid gray;
+}
