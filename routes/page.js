@@ -1,5 +1,4 @@
 const express = require("express");
-const { rule } = require("postcss");
 
 const router = express.Router();
 
